@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Blog
+{% endblock %}
+
+{% block content %}
+<!-- ################### Recent Post Section Begin ################### -->
+<div class="container py-5">
+    <h1 class="home_title">Blog</h1>
+    <div class="blog_cards py-5 d-flex flex-column row-gap-3">
+        <div class="blog_card d-flex flex-column row-gap-2"
+            style="border-bottom: 1px solid #E0E0E0; padding-bottom: 20px;">
+            <a href="blog_detail.html" class="text-decoration-none">
+                <h2 class="blog_title_2">UI Interactions of the week</h2>
+            </a>
+            <div class="d-flex gap-3">
+                <span class="blog_date">12 Feb 2019</span>
+                <span class="blog_date">|</span>
+                <span class="tags">Express, Handlebars</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nesciunt soluta facere illo quibusdam
+                laboriosam reiciendis beatae? Dolores hic, temporibus exercitationem obcaecati ex soluta. Aliquam iure,
+                architecto blanditiis labore tempora iste laborum rerum, accusantium repudiandae maiores provident dolor
+                delectus,</p>
+        </div>
+    </div>
+    {% for post in posts %}
+    <div class="blog_cards py-5 d-flex flex-column row-gap-3">
+        <div class="blog_card d-flex flex-column row-gap-2"
+            style="border-bottom: 1px solid #E0E0E0; padding-bottom: 20px;">
+            <a href="blog_detail.html" class="text-decoration-none">
+                <h2 class="blog_title_2">{{ post.title }}</h2>
+            </a>
+            <div class="d-flex gap-3">
+                <span class="blog_date">12 Feb 2019</span>
+                <span class="blog_date">|</span>
+                <span class="tags">Express, Handlebars</span>
+            </div>
+
+            {{post.content}}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<!-- ################### Recent Post Section End ################### -->
+{% endblock %}
