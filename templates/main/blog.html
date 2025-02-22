@@ -33,12 +33,12 @@ Blog
                 <h2 class="blog_title_2">{{ post.title }}</h2>
             </a>
             <div class="d-flex gap-3">
-                <span class="blog_date">12 Feb 2019</span>
+                <span class="blog_date">{{ post.date_posted|date:"j M Y"}}</span>
                 <span class="blog_date">|</span>
-                <span class="tags">Express, Handlebars</span>
+                <span class="tags">{% for tag in post.tags.all %}{{ tag.name|capfirst }}{% if not forloop.last%},{%endif%} {% endfor %}</span>
             </div>
-
-            {{post.content}}
+            <p>
+                {{post.content|safe|striptags|truncatewords:70}}</p>
         </div>
     </div>
     {% endfor %}

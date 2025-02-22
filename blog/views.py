@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView
 
 class PostListView(ListView):
     model = Post
-    teamplate_name = 'main/blog.html'
+    template_name = 'main/blog.html'
     context_object_name ='posts'
     ordering = ['-date_posted']
 

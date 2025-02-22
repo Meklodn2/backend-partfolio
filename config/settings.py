@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'works',
     'users',
 
-    'ckeditor',
+     'ckeditor',
     'ckeditor_uploader',
 ]
 
@@ -115,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Tashkent'
+TIME_ZONE ='Asia/Tashkent'
 
 USE_I18N = True
 
