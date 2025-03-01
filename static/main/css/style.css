@@ -237,10 +237,10 @@ body {
     border: 2px dashed white;
 }
 
-.my_card:hover {
+/* .my_card:hover {
     box-shadow: 15px 15px;
     border: 2px dashed black;
-}
+} */
 
 .works_title {
     font-size: 30px;

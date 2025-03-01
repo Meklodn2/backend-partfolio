@@ -14,7 +14,7 @@
                                 <a class="nav-link my_nav  {% if request.path == '/' %} active  {% endif %} " aria-current="page" href="{% url 'home' %}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link my_nav  {% if request.path == '/blog/' %} active  {% endif %}     " href="{% url 'blog' %}">Blog</a>
+                                <a class="nav-link my_nav  {% if request.path == '/blog/' or request.resolver_match.url_name ==  'blog_detail' %} active  {% endif %}     " href="{% url 'blog' %}">Blog</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link my_nav" href="works.html">Works</a>

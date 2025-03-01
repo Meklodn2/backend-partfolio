@@ -45,9 +45,17 @@ INSTALLED_APPS = [
     'works',
     'users',
 
-     'ckeditor',
+    'ckeditor',
     'ckeditor_uploader',
+
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+    
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -150,3 +158,5 @@ CKEDITOR_CONFIGS = {
         'width': "100%",
     },
 }
+
+AUTH_USER_MODEL = 'users.CustomUser'

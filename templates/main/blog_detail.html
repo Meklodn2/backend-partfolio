@@ -4,59 +4,29 @@
 
 {% block content %}
 <!-- ################### blog Section Begin ################### -->
-
+<style>
+    p img{
+        max-width: 100% !important;
+        height: auto !important;
+    }
+</style>
 
 
 <div class="container py-5">
+
+{% comment %} ################################################################################################################################ {% endcomment %}
     <div class="d-flex flex-column gap-4">
         <div class="detail_title">
-            <h1>Designing Dashboards with usability in mind</h1>
+            <h1>{{ post.title }}</h1>
         </div>
         <div class="d-flex gap-3 flex-wrap" class="date_title">
-            <span>12 Feb 2020</span>
-            <span>|</span>
-            <span>Design, Pattern</span>
+            <span class="blog_date">{{ post.date_posted|date:"j M Y"}}</span>
+            <span class="blog_date">|</span>
+            <span class="tags">{% for tag in post.tags.all %}{{ tag.name|capfirst }}{% if not forloop.last%},{%endif%} {% endfor %}</span>
         </div>
 
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita veritatis voluptas necessitatibus illo
-            repellat cupiditate est. Repudiandae temporibus voluptas aperiam! Ipsam ut saepe dolore sit nam deserunt
-            temporibus ullam incidunt possimus. Tenetur omnis, minima eligendi, sapiente quas minus veniam cumque
-            amet ab eos perspiciatis repellat fuga error, vero dolore architecto voluptatibus nemo. Porro earum
-            fugit obcaecati perspiciatis in? Perspiciatis, eaque eius at id sapiente, voluptas, est perferendis quia
-            quibusdam inventore fugiat quaerat explicabo ipsum maxime nobis saepe porro facilis eos dolor molestias
-            nostrum molestiae? Tempora facere, dolores ex ipsa voluptates quibusdam voluptas ullam illum dolore*
-            facilis? Perspiciatis, ullam et! Repellat soluta adipisci ex nostrum dolore a corrupti suscipit, itaque
-            nulla, dicta ab mollitia illum recusandae laudantium molestias eveniet sed dignissimos hic beatae earum
-            iusto maxime perferendis. Corporis magni sequi expedita temporibus officia hic distinctio nostrum,
-            assumenda dignissimos molestiae maiores rem asperiores reiciendis, animi amet aut ipsum incidunt
-            voluptates adipisci dolorum repellat similique, nesciunt consectetur id. Et error, ab asperiores earum
-            nemo dolorem iusto quos reprehenderit amet blanditiis magni ad, fuga consectetur eos eum vel optio in
-            pariatur? Corrupti quibusdam maiores dicta dolores sapiente voluptates asperiores explicabo, ratione
-            officia eveniet, molestiae libero repellat cupiditate ipsum perferendis saepe recusandae optio
-            consectetur iure laboriosam voluptatum. Autem rerum, esse ea maxime nostrum ab mollitia temporibus
-            provident, reprehenderit tenetur unde corrupti id atque quibusdam. Repellendus saepe itaque porro modi
-            perspiciatis quisquam illum recusandae, delectus rem unde in voluptatibus, adipisci pariatur possimus
-            quos, vel ipsum error. Praesentium odit iste hic est, possimus alias. Minus voluptatibus voluptas
-            explicabo! Non error aliquam repudiandae vel exercitationem debitis ea quasi tempore magnam
-            necessitatibus nostrum ratione voluptatum, id repellat officia ex placeat quo quae libero perspiciatis
-            beatae inventore culpa dolores. Deserunt dignissimos est praesentium accusamus illo tempore maxime!
-            Molestias ullam repellat esse labore animi repudiandae maiores dicta minima natus, aperiam, maxime sit.
-            Quidem nulla a vel porro sequi quisquam facilis illo aliquid, consectetur accusamus architecto cumque
-            distinctio excepturi ullam maxime officia laborum at tempora voluptatem repellat qui aut sapiente! Sunt
-            nobis aperiam assumenda tempore. Nostrum ducimus iure impedit ut voluptates. Modi optio aut totam sit
-            possimus magni iure fugit ad, quaerat laboriosam adipisci accusantium delectus tempore earum aspernatur
-            voluptatum atque sunt. Incidunt, accusamus? Voluptatem ex architecto, doloribus eius soluta laboriosam
-            aspernatur sequi necessitatibus perspiciatis molestiae a delectus quia vel voluptates, iure, vitae quis
-            praesentium earum! Aliquid rem sequi similique quas perferendis, suscipit praesentium. Deserunt nihil
-            quia quisquam dolorem laboriosam, iure non soluta, alias animi temporibus quo voluptatum debitis totam
-            dolor, nostrum sit! Possimus ab voluptatibus soluta sint porro vero cupiditate corrupti aspernatur iste
-            reprehenderit architecto ipsa modi odit, accusantium odio accusamus error hic, temporibus quo optio
-            eligendi! Quos pariatur, rem voluptatum molestias earum recusandae eveniet blanditiis saepe dolorem
-            ratione laudantium quae reprehenderit tenetur modi quaerat fuga neque! Dolores fugiat quisquam
-            dignissimos sint doloribus maxime eveniet corrupti ab eius, aut dolorem cumque vero reprehenderit
-            officia delectus dolore velit exercitationem impedit mollitia odio nesciunt veritatis. Amet doloremque
-            illo vero labore! Explicabo aliquid fugiat expedita, repellat veritatis vel saepe deleniti ipsam
-            voluptates, iure assumenda.
+        <p>
+            {{post.content|safe}}
         </p>
         <!-- coomment start -->
         <div>
@@ -65,8 +35,8 @@
                 <div class="comment-field d-flex flex-column gap-3">
 
                     <div class="profile d-flex gap-3 align-items-end">
-                        <img src="{% static 'main/img/Ellipse 1.png' %}" alt="">
-                        <h4 class="profile_name">John Doe</h4>
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" width="32px" height="32px">
+                        <h4 class="profile_name m-0">John Doe</h4>
                     </div>
                     <form>
                         <textarea class=" comment_text" row="5" placeholder="Write your comment...">
@@ -76,11 +46,12 @@
                         </div>
                     </form>
                 </div>
+                <hr>
                 <div class="d-flex flex-column gap-4">
                     <div class="profile d-flex gap-2 align-items-end">
                         <div class="d-flex gap-2 align-items-center">
-                            <img src=" {% static 'main/img/Ellipse 2.png' %}" alt="">
-                            <h5 class="profile_name">John Doe</h5>
+                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" width="32px" height="32px">
+                            <h5 class="profile_name m-0">John Doe</h5>
                             <div class="text-secondary ms-3" style="font-size: 12px;">4 min ago</div>
                         </div>
                     </div>
@@ -90,12 +61,11 @@
                         writing and sharing!
                     </p>
                 </div>
+                <hr>
             </div>
         </div>
     </div>
     <!-- coomment end -->
-     
-    
 
 </div>
 
