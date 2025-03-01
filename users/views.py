@@ -1,11 +1,11 @@
 from django.contrib.auth import login, logout
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView, UpdateView
 from .models import CustomUser
 from .forms import UserSignUpForm, UserSignInForm, UserUpdateForm
 from django.urls import reverse_lazy
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 class SignUpView(CreateView):
@@ -28,4 +28,12 @@ class SignInView(LoginView):
 
 def user_logout(request):
     logout(request)
-    return render(request,'main/auth/sign_in.html')
+    return redirect('login')
+
+class ProfileView(LoginRequiredMixin, DetailView):
+    model = CustomUser
+    template_name = 'main/profile.html'
+    context_object_name = 'user_profile'
+
+    def get_object(self, queryset=None):
+        return self.request.user

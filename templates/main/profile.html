@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <div class="p-4">
+                <h2>Profile</h2>
+                <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" alt="" class="rounded-circle" width="200" height="200">
+                <h3>Username:{{ user_profile.username }}</h3>
+                <p><strong>Full Name:</strong> {{user_profile.first_name|default:"Full name doesn't exist" }} {{ user_profile.last_name }}</p>
+                <p><strong>Email:</strong> {{ user_profile.email|default:"No email registered yet" }}</p>
+                <p><strong>Bio</strong> {{user_profile.bio|default:"No bio available"}}</p>
+                {% if user == user_profile %}
+                    <a href="#" class="btn btn-primary">Edit Profile</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
